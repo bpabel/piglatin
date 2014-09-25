@@ -39,7 +39,7 @@ def translate(txt):
 		# at the end of the word, followed by -ay.  If the word starts with a 
 		# vowel, just append -ay.  Treat y as a vowel only if it is not at 
 		# the beginning of a word and preceded by a consonant (this isn't 
-		# foolproof, but it works cases).
+		# foolproof, but it works in most cases).
 		i = 0
 		word = d['word']
 		while len(word) > i:
