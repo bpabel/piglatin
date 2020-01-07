@@ -52,14 +52,13 @@ def translate(txt):
         # vowel, just append -ay.  Treat y as a vowel only if it is not at
         # the beginning of a word and preceded by a consonant (this isn't
         # foolproof, but it works in most cases).
-        i = 0
         word = d["word"]
-        while len(word) > i:
-            if word[i].lower() in vowels:
+        for i, letter in enumerate(word):
+            if letter in vowels or i > 0 and letter == "y":
                 break
-            if i > 0 and word[i].lower() == "y":
-                break
-            i += 1
+        else:
+            # If the word contains no vowels, don't strip any letters off the front.
+            i = 0
         d["fore"] = word[i:]
         d["aft"] = word[:i]
         new_word = "{pre}{fore}-{aft}ay{post}".format(**d)
