@@ -38,6 +38,13 @@ def translate(txt):
         # Gather pre and post punctuation (i.e. quotes, etc.). They should
         # still remain at the beginning and end of the translated word.
         m = re.match(r"^(?P<pre>[\W]*)(?P<word>.+?)(?P<post>[\W]*)$", word)
+        
+        # If for some reason, this word can't be parsed, just include it as-is
+        # in the output without translating it.
+        if not m:
+            output.append(word)
+            continue
+
         d = m.groupdict()
 
         # pig latin removes any leading consonants to a word and places them
