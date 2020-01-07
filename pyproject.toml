@@ -1,19 +1,20 @@
 
 
-[project]
-name = "piglatin"
-version = "1.0.3"
-description = "Converts text to piglatin."
-authors = [
-    "Brendan Abel <007brendan@gmail.com>"
-]
-license = "MIT"
-readme = "README.md"
-python = "^3.6"
-homepage = "https://github.com/bpabel/piglatin"
-repository = "https://github.com/bpabel/piglatin"
-
-
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "piglatin"
+author = "Brendan Abel"
+author-email = "007brendan@gmail.com"
+home-page = "https://github.com/bpabel/piglatin"
+description-file = "README.md"
+requires-python = ">=2.7"
+keywords = "piglatin,translate,cypher,secret,language"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: General",
+    "Topic :: Text Processing :: Linguistic",
+]

@@ -1,16 +1,9 @@
-"""
-Converts text to Pig Latin
+"""Converts text to Pig Latin"""
 
->>> import piglatin
->>> 
->>> piglatin.translate('this is a test string')
-'is-thay is-ay a-ay est-tay ing-stray'
-
-"""
 import re
 import string
-from string import ascii_letters
-from ._version import __version__
+
+__version__ = "1.0.5"
 
 
 def translate(txt):
@@ -21,7 +14,7 @@ def translate(txt):
     # Separates text into words and whitespace
     words = re.findall(r"(?:\S+)|(?:\s+)", txt)
     output = []
-    ascii_set = set(ascii_letters)
+    ascii_set = set(string.ascii_letters)
 
     for word in words:
         # Whitespace does not require translation
@@ -34,7 +27,7 @@ def translate(txt):
             output.append(word)
             continue
 
-        # Gather pre and post punctuation (ie; quotes, etc.). They should
+        # Gather pre and post punctuation (i.e. quotes, etc.). They should
         # still remain at the beginning and end of the translated word.
         m = re.match(r"^(?P<pre>[\W]*)(?P<word>.+?)(?P<post>[\W]*)$", word)
         d = m.groupdict()
@@ -58,5 +51,3 @@ def translate(txt):
         output.append(new_word)
 
     return "".join(output)
-			
-	
