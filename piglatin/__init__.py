@@ -3,11 +3,19 @@
 import re
 import string
 
-__version__ = "1.0.5"
+__version__ = "1.0.6"
 
 
 def translate(txt):
-    """Translates text into pig latin."""
+    # type: (str) -> str
+    """Translates text into pig latin.
+    
+    Args:
+        txt (str): The text to translate.
+
+    Returns:
+        str: The text converted to pig latin.
+    """
 
     vowels = "aeiou"
 
